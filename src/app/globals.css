@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background-start: #09090b;
+  --color-background-end: #18181b;
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --color-glass-bg: rgba(24, 24, 27, 0.45);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  
+  --font-sans: var(--font-inter), var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  /* Dark Leather Texture encoded as SVG */
+  --leather-texture: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/%3E%3CfeColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.05 0" /%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+.light-theme {
+  --color-background-start: #e0e0e0;
+  --color-background-end: #f8f9fa;
+  --color-primary: #000000;
+  --color-secondary: #555555;
+  --color-glass-bg: rgba(255, 255, 255, 0.65);
+  --color-glass-border: rgba(0, 0, 0, 0.15);
+  --background: #f8f9fa;
+  --foreground: #111111;
+  /* Light Leather Texture */
+  --leather-texture: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/%3E%3CfeColorMatrix type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 0.1 0" /%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+body {
+  background: 
+    var(--leather-texture),
+    linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background-blend-mode: overlay, normal;
+  color: var(--foreground);
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-attachment: fixed;
+}
+
+body.light-theme {
+  background: 
+    var(--leather-texture),
+    linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-end) 100%);
+  background-blend-mode: overlay, normal;
+}
+
+/* Professional Matte Leather Glass panels & Innovative Components */
+@layer utilities {
+  .glass-panel {
+    @apply bg-[var(--color-glass-bg)] backdrop-blur-2xl border border-[var(--color-glass-border)] rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.8),_inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)];
+  }
+  .light-theme .glass-panel {
+    @apply shadow-[0_15px_35px_rgba(0,0,0,0.1),_inset_0_1px_2px_rgba(255,255,255,0.8)];
+  }
+  .glass-panel-hover {
+    @apply hover:border-[rgba(255,255,255,0.15)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.9),_inset_0_2px_2px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-300;
+  }
+  .light-theme .glass-panel-hover {
+    @apply hover:shadow-[0_25px_50px_rgba(0,0,0,0.15),_inset_0_1px_2px_rgba(255,255,255,0.9)];
+  }
+
+  /* Innovative Tactile Buttons */
+  .btn-innovative {
+    @apply relative overflow-hidden transition-all duration-300 active:scale-95 text-sm font-semibold 
+           shadow-[inset_0_1px_rgba(255,255,255,0.1),_inset_0_-2px_rgba(0,0,0,0.4),_0_2px_10px_rgba(0,0,0,0.3)] 
+           hover:shadow-[inset_0_1px_rgba(255,255,255,0.2),_inset_0_-1px_rgba(0,0,0,0.3),_0_5px_15px_rgba(0,0,0,0.4)] 
+           hover:-translate-y-0.5 border border-[var(--color-glass-border)] rounded-full bg-black/50 text-white backdrop-blur-md;
+  }
+  
+  .light-theme .btn-innovative {
+    @apply bg-white text-black shadow-[inset_0_2px_rgba(255,255,255,1),_inset_0_-2px_rgba(0,0,0,0.1),_0_2px_10px_rgba(0,0,0,0.1)]
+           border-black/5
+           hover:shadow-[inset_0_2px_rgba(255,255,255,1),_inset_0_-1px_rgba(0,0,0,0.05),_0_8px_20px_rgba(0,0,0,0.15)];
+  }
+
+  .btn-innovative::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-[200%] transition-all duration-700 ease-in-out pointer-events-none;
+  }
+
+  .btn-innovative:hover::after {
+    @apply opacity-100 translate-x-[200%];
+  }
+
+  .neon-text-primary {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  
+  .light-theme .neon-text-primary {
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Brand Typography: Embossed Thick Glass/Leather feeling */
+  .brand-text {
+     @apply text-transparent bg-clip-text bg-gradient-to-br from-[var(--foreground)] via-gray-400 to-[var(--color-secondary)] 
+            font-black tracking-tighter drop-shadow-[0_4px_6px_rgba(0,0,0,0.6)] relative inline-block;
+  }
+  .light-theme .brand-text {
+     @apply bg-gradient-to-br from-black via-gray-700 to-gray-400 drop-shadow-[0_4px_6px_rgba(0,0,0,0.15)];
+  }
+  
+  .brand-text::after {
+      content: attr(data-text);
+      @apply absolute left-0 top-0 text-transparent bg-clip-text bg-gradient-to-t from-transparent to-white/30 
+             drop-shadow-none z-10 select-none;
+  }
+  .light-theme .brand-text::after {
+      @apply bg-gradient-to-t from-transparent to-black/10;
+  }
+
+  /* Automatic Dark->Light mode mappings for legacy dark-hardcoded components */
+  .light-theme .text-white,
+  .light-theme [class~='text-white'] {
+    color: #111111 !important;
+  }
+  
+  .light-theme [class~='text-gray-200'],
+  .light-theme [class~='text-gray-300'],
+  .light-theme [class~='text-gray-400'] {
+    color: #444444 !important;
+  }
+  
+  .light-theme [class~='text-gray-500'],
+  .light-theme [class~='text-gray-600'] {
+    color: #666666 !important;
+  }
+  
+  .light-theme [class*='bg-black'],
+  .light-theme .bg-black\/60,
+  .light-theme .bg-black\/50,
+  .light-theme .bg-black\/40 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .light-theme .border-white\/20,
+  .light-theme .border-white\/10,
+  .light-theme .border-white\/5 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .light-theme .bg-white\/10,
+  .light-theme .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  /* Form Elements in Light Mode */
+  .light-theme textarea::-webkit-input-placeholder,
+  .light-theme input::-webkit-input-placeholder {
+    color: #888888 !important;
+  }
+  .light-theme textarea::placeholder,
+  .light-theme input::placeholder {
+    color: #888888 !important;
+  }
+}
+
+/* Explicit custom-scrollbar (Dark Mode default) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Light Mode scrollbar */
+.light-theme .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+.light-theme .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Explicitly hide scrollbar for specific elements */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
