@@ -88,15 +88,11 @@ export default function LoginPage() {
             initial={{ opacity: 0, scale: 0.9, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
-            className="relative w-full drop-shadow-[0_0_40px_rgba(0,212,255,0.25)] flex justify-center"
+            className="relative w-full drop-shadow-[0_0_40px_rgba(0,212,255,0.25)] flex justify-center py-6"
           >
-            <Image 
-               src="/banner_wide.png" 
-               alt="ReportMe Debugging Agent" 
-               width={400}
-               height={120}
-               className="w-full max-w-[400px] h-auto object-contain rounded-xl"
-            />
+            <h1 className="text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary neon-text-primary text-center">
+              ReportMe
+            </h1>
           </motion.div>
         </div>
 
