@@ -125,7 +125,7 @@ export default function CodeInput() {
     <div className="flex flex-col gap-4 w-full">
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center gap-3">
-           <img src="/logo.jpg" alt="ReportMe Shield Logo" className="w-8 h-8 object-contain rounded-md drop-shadow-[0_0_15px_rgba(0,212,255,0.4)]" />
+           <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.jpg`} alt="ReportMe Shield Logo" className="w-8 h-8 object-contain rounded-md drop-shadow-[0_0_15px_rgba(0,212,255,0.4)]" />
            <h2 className="text-2xl font-bold text-white neon-text-primary">New Debug Session</h2>
         </div>
         <div className="flex bg-black/40 rounded-full p-1.5 border border-white/10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] backdrop-blur-md relative overflow-hidden">

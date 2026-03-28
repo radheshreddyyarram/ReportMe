@@ -51,7 +51,7 @@ export default function DashboardPage() {
                exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
                className="absolute top-8 left-8 z-50 pointer-events-none select-none flex items-center gap-3 drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]"
             >
-              <img src="/logo.jpg" alt="ReportMe Bug Shield Logo" className="w-10 h-10 object-contain rounded-lg drop-shadow-[0_0_15px_rgba(0,212,255,0.4)]" />
+              <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.jpg`} alt="ReportMe Bug Shield Logo" className="w-10 h-10 object-contain rounded-lg drop-shadow-[0_0_15px_rgba(0,212,255,0.4)]" />
               <h1 className="text-4xl brand-text" data-text="ReportMe">
                  ReportMe
               </h1>
