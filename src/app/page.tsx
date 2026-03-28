@@ -15,12 +15,15 @@ export default function LoginPage() {
   const [isResetState, setIsResetState] = useState(false);
   const [resetSent, setResetSent] = useState(false);
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // Auto-redirect if already logged in
   useEffect(() => {
-    if (user) {
+    if (mounted && user) {
       router.push('/dashboard');
     }
-  }, [user, router]);
+  }, [user, router, mounted]);
 
   const loginWithGoogle = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -68,7 +71,7 @@ export default function LoginPage() {
     }, 3000);
   };
 
-  if (user) return null; // Prevent flash of login page if already cached
+  if (!mounted || user) return null; // Prevent flash of login page if already cached
 
   return (
     <main className="min-h-screen w-full flex items-center justify-center p-4 md:py-12 relative overflow-x-hidden overflow-y-auto custom-scrollbar bg-black text-white">

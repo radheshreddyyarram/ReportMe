@@ -31,14 +31,17 @@ export default function DashboardPage() {
      }
   }, [theme]);
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // Protected route logic
   useEffect(() => {
-    if (!user) {
+    if (mounted && !user) {
       router.push('/');
     }
-  }, [user, router]);
+  }, [user, router, mounted]);
 
-  if (!user) return null; // Or a loading spinner
+  if (!mounted || !user) return null; // Or a loading spinner
 
   return (
     <div className="h-screen w-full flex overflow-hidden text-[var(--foreground)] relative transition-colors duration-500">
