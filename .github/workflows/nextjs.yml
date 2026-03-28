@@ -46,6 +46,10 @@ jobs:
         
       - name: Build with Next.js
         run: npm run build
+        env:
+          NEXT_PUBLIC_GOOGLE_CLIENT_ID: "693053146658-6bsjrlrv1gag1l2mqj5drv2b8tab55pb.apps.googleusercontent.com"
+          NEXT_PUBLIC_WEBHOOK_CODE_URL: "https://pantosolutions.tech/webhook/code"
+          NEXT_PUBLIC_WEBHOOK_CHAT_URL: "https://pantosolutions.tech/webhook/chatbot"
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

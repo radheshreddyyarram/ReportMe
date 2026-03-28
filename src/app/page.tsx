@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
 import { LogIn, Mail, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
-
+import Image from 'next/image';
 export default function LoginPage() {
   const router = useRouter();
   const user = useAppStore(state => state.user);
@@ -88,12 +88,14 @@ export default function LoginPage() {
             initial={{ opacity: 0, scale: 0.9, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
-            className="relative w-full drop-shadow-[0_0_40px_rgba(0,212,255,0.25)]"
+            className="relative w-full drop-shadow-[0_0_40px_rgba(0,212,255,0.25)] flex justify-center"
           >
-            <img 
+            <Image 
                src="/banner_wide.png" 
                alt="ReportMe Debugging Agent" 
-               className="w-full h-auto object-contain rounded-xl"
+               width={400}
+               height={120}
+               className="w-full max-w-[400px] h-auto object-contain rounded-xl"
             />
           </motion.div>
         </div>
