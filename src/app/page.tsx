@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/store/useAppStore';
 import { LogIn, Mail, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 export default function LoginPage() {
   const router = useRouter();
   const user = useAppStore(state => state.user);

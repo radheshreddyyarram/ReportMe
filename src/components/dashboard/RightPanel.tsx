@@ -76,13 +76,9 @@ export default function RightPanel({ onClose }: { onClose?: () => void }) {
       {/* SECTION 1: USER PROFILE */}
       <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] transition-colors hover:bg-white/10">
         <div className="flex items-center gap-4">
-          {user?.picture ? (
-            <img src={user.picture} alt="Avatar" className="w-8 h-8 rounded-full border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
-          ) : (
-            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-              <UserIcon size={16} className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
-            </div>
-          )}
+          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            <UserIcon size={16} className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
+          </div>
           <div className="flex flex-col">
             <span className="text-sm font-bold text-white tracking-wide">{user?.name || 'Developer'}</span>
             <span className="text-xs text-gray-400 mt-0.5">{user?.email}</span>

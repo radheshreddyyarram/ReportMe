@@ -126,11 +126,7 @@ export default function DashboardPage() {
                   className="w-10 h-10 rounded-full btn-innovative glass-panel flex items-center justify-center cursor-pointer"
                   title="Open Sidebar"
                >
-                  {user.picture ? (
-                     <img src={user.picture} alt="Avatar" className="w-full h-full object-cover rounded-full" />
-                  ) : (
-                     <UserIcon size={16} className="text-[var(--foreground)] drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
-                  )}
+                  <UserIcon size={16} className="text-[var(--foreground)] drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
                </button>
             </motion.div>
          )}
